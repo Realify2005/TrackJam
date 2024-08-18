@@ -94,7 +94,7 @@ export default function Dashboard() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true);
+    setIsLoading(true);
     if (status === "authenticated" && session && selectedFriend) {
       setIsLoading(true); // Show loading indicator
 
@@ -111,7 +111,7 @@ export default function Dashboard() {
         fetchUserData();
 
         // Close the popup after sending the quest
-        setLoading(false);
+        setIsLoading(false);
         setShowPopup(false);
         setSongTitle('');
         setSelectedFriend(null);
@@ -400,7 +400,7 @@ export default function Dashboard() {
             
             {friend.lastPlayedTrack ? (
               <div className="flex items-center text-sm">
-                <img
+                <Image
                   src={friend.lastPlayedTrack.albumImage}
                   alt={`${friend.lastPlayedTrack.trackName} album cover`}
                   width={50}
